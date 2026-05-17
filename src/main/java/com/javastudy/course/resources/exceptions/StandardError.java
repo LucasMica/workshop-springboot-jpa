@@ -1,10 +1,12 @@
 package com.javastudy.course.resources.exceptions;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
 import java.time.Instant;
 
+@JsonIgnoreProperties({"stackTrace", "cause", "suppressed", "localizedMessage"})
 public class StandardError extends RuntimeException implements Serializable {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
